@@ -1,4 +1,4 @@
-package edu.kosmo.kyw;
+package edu.kosmo.kyw.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

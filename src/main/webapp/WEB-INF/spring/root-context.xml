@@ -29,7 +29,7 @@
    <!-- mapperLocations을 특별히 지정하기 -->
    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
       <property name="dataSource" ref="dataSource"/>
-      <property name="mapperLocations" value="classpath:/sqlmap/*.xml" /> 
+<!--       <property name="mapperLocations" value="classpath:/sqlmap/*.xml" />  -->
    </bean>
    
    <!-- mybatis:scan 해당 패키지 밑에 있는 특정 인터페이스만 Mapper로 인식 -->

@@ -176,9 +176,9 @@
 							
 							<!-- ★0125 작성한 내용 / name, user name 구분 / password -->
 							<!-- <input type="number" name="id" placeholder="ID" /> -->
-							<input type="password" name="password" placeholder="Password"/>
 							<input type="text" name="username" placeholder="User Name" />
 					 		<input type="text" name="name" placeholder="Name"/>
+					 		<input type="password" name="password" placeholder="Password"/>
 							<input type="email" name="email" placeholder="Email Address"/>
 							<input type="tel" name="phone" placeholder="Telephone">
 							

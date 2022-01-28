@@ -1,6 +1,8 @@
 package edu.kosmo.kyw.vo;
 
 import java.sql.Timestamp;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,5 +38,7 @@ public class MemberVO {
 	private String password;
 	
 	private String birth2;
+	
+	List<AuthVO> authList;
 
 }

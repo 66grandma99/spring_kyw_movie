@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +36,11 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+							<sec:authorize access="isAuthenticated()">
+								<li><a href=""><i class="fa fa-phone"></i><sec:authentication property="principal.member.phone"/></a></li>
+								<li><a href=""><i class="fa fa-envelope"></i><sec:authentication property="principal.member.email"/></li>
+								<li><a href=""><i class="fa fa-envelope"></i><sec:authentication property="principal.member.username"/>님 환영합니다.</li>
+							</sec:authorize>	
 							</ul>
 						</div>
 					</div>
@@ -149,15 +156,15 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
-						<form action="#">
-							<input type="text" placeholder="Name" />
-							<input type="email" placeholder="Email Address" />
+						<form:form action="/kyw/login" method="post">
+							<input type="text" name="id" placeholder="아이디" />
+							<input type="password" name="password" placeholder="패스워드" />
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Keep me signed in
 							</span>
 							<button type="submit" class="btn btn-default">Login</button>
-						</form>
+						</form:form>
 					</div><!--/login form-->
 				</div>
 				<div class="col-sm-1">

@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +36,13 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<sec:authorize access="isAuthenticated()">
+<!-- 									<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+									<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li> -->
+									<li><a href=""><i class="fa fa-phone"></i><sec:authentication property="principal.member.phone"/></a></li>
+									<li><a href=""><i class="fa fa-envelope"></i><sec:authentication property="principal.member.email"/></a></li>
+									<li><a href=""><i class="fa fa-envelope"></i><sec:authentication property="principal.member.username"/>님 환영합니다.</a></li>
+						    	</sec:authorize>
 							</ul>
 						</div>
 					</div>
@@ -326,12 +335,12 @@
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
 									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
+									<li><a href="#"> <span class="pull-right">(56)</span>GrÃ¼ne Erde</a></li>
 									<li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
 									<li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
 									<li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
 									<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+									<li><a href="#"> <span class="pull-right">(4)</span>RÃ¶sch creative culture</a></li>
 								</ul>
 							</div>
 						</div><!--/brands_products-->
@@ -991,7 +1000,7 @@
 								<li><a href="#">Contact Us</a></li>
 								<li><a href="#">Order Status</a></li>
 								<li><a href="#">Change Location</a></li>
-								<li><a href="#">FAQ’s</a></li>
+								<li><a href="#">FAQâs</a></li>
 							</ul>
 						</div>
 					</div>
@@ -1049,7 +1058,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright Â© 2013 E-SHOPPER Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>

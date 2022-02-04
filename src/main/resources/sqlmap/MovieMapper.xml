@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.kosmo.kyw.mapper.MovieMapper">
+	<resultMap id="movieMap" type="edu.kosmo.kyw.vo.MovieVO">
+		<id property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="view_age" column="view_age" />
+		<result property="description" column="description" />
+		<result property="director" column="director" />
+		<result property="grade" column="grade" />
+		<result property="running_time" column="running_time" />
+		<result property="genre" column="genre" />
+		<collection property="imageList" resultMap="imageMap"></collection>
+	</resultMap>
+	<!-- 0203 작성 여기까지 -->
+
+	<resultMap id="imageMap" type="edu.kosmo.kyw.vo.ImageVO">
+		<id property="id" column="id" />
+		<result property="path" column="path" />
+		<result property="movie_id" column="movie_id" />
+		<result property="name" column="name" />
+	</resultMap>
+
+	<select id="getMovie" resultMap="movieMap">
+		select * from images i, movie m
+		where i.movie_id = #{movie_id}
+	</select>
+
+</mapper>
